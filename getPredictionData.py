@@ -42,6 +42,8 @@ def prepareData(curr_Pair):
     df['close'] = data[['bidclose', 'askclose']].mean(axis=1)
     df['high'] = data[['bidhigh', 'askhigh']].mean(axis=1)
     df['low'] = data[['bidlow', 'asklow']].mean(axis=1)
+    engine.dispose()
+
     #create dataframe to hold training sets
     transformedDataSet = pd.DataFrame(columns=["o5","c5","h5","l5","o4","c4","h4","l4","o3","c3","h3","l3","o2","c2","h2","l2","o1","c1","h1","l1"])
 

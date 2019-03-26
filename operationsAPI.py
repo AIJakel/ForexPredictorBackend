@@ -27,7 +27,7 @@ def getAllHistorical(curr_Pair):
     df['close'] = data[['bidclose', 'askclose']].mean(axis=1)
     df['high'] = data[['bidhigh', 'askhigh']].mean(axis=1)
     df['low'] = data[['bidlow', 'asklow']].mean(axis=1)
-
+    engine.dispose()
     return df.to_json(orient='records')
 
 #function called by flask to get the prediction for the next hour.

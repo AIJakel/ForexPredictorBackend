@@ -1,0 +1,1 @@
+FXCM_API_KEY = ""

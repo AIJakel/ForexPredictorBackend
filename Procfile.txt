@@ -1,1 +1,1 @@
-web: python python/FlaskAPI.py
+web: python FlaskAPI.py

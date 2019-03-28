@@ -12,7 +12,7 @@ import datetime
 #initalizes the tensorflow graph (needed for tf to work with flask)
 app = Flask(__name__)
 CORS(app)
-def init():
+#def init():
     # global model_aud_usd,model_eur_usd,model_gbp_usd,model_nzd_usd,model_usd_cad,model_usd_chf,model_usd_jpy
     # #global graph
     # # load the pre-trained Keras model
@@ -105,6 +105,6 @@ def get_Prediction(curr_Pair):
 def helloWorld():
     return jsonify({"Status":"Test"})
 
-if __name__ == "__main__":
-    init()
-    app.run(threaded=True, debug=True)
+# if __name__ == "__main__":
+#     init()
+#     app.run(threaded=True, debug=True)

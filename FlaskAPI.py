@@ -56,6 +56,7 @@ def get_Prediction(curr_Pair):
         raw_prediction = model_aud_usd.predict(inputFeature)
         prediction = pd.DataFrame(raw_prediction, columns=["p_open","p_close","p_high","p_low"])
         prediction = prediction.astype(float).round(4)
+        tf.keras.backend.clear_session()
         return prediction.to_json(orient='records')
     
     elif curr_Pair == 'eur_usd':
@@ -63,6 +64,7 @@ def get_Prediction(curr_Pair):
         raw_prediction = model_eur_usd.predict(inputFeature)
         prediction = pd.DataFrame(raw_prediction, columns=["p_open","p_close","p_high","p_low"])
         prediction = prediction.astype(float).round(4)
+        tf.keras.backend.clear_session()
         return prediction.to_json(orient='records')
     
     elif curr_Pair == 'gbp_usd':
@@ -98,6 +100,7 @@ def get_Prediction(curr_Pair):
         raw_prediction = model_usd_jpy.predict(inputFeature)
         prediction = pd.DataFrame(raw_prediction, columns=["p_open","p_close","p_high","p_low"])
         prediction = prediction.astype(float).round(4)
+        tf.keras.backend.clear_session()
         return prediction.to_json(orient='records')
 
 #test api end point

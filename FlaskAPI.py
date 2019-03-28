@@ -38,6 +38,7 @@ def get_Date(curr_Pair):
 #end point for getting the prediction for the next hour for a specified pair
 @app.route('/prediction/<string:curr_Pair>', methods=['GET'])
 def get_Prediction(curr_Pair):
+    tf.keras.backend.clear_session()
     inputFeature = operationsAPI.getCurrData(curr_Pair)
     model_aud_usd = load_model('model_predictFutureCandle_aud_usd.model')
     model_eur_usd = load_model('model_predictFutureCandle_eur_usd.model')
@@ -50,7 +51,7 @@ def get_Prediction(curr_Pair):
     graph = tf.get_default_graph()
 
 
-    tf.keras.backend.clear_session()
+    
     if curr_Pair == 'aud_usd':
         #with graph.as_default():
         raw_prediction = model_aud_usd.predict(inputFeature)
@@ -94,8 +95,8 @@ def get_Prediction(curr_Pair):
         return prediction.to_json(orient='records')
     
     elif curr_Pair == 'usd_jpy':
-        #with graph.as_default():
-        raw_prediction = model_usd_jpy.predict(inputFeature)
+        with graph.as_default():
+          raw_prediction = model_usd_jpy.predict(inputFeature)
         prediction = pd.DataFrame(raw_prediction, columns=["p_open","p_close","p_high","p_low"])
         prediction = prediction.astype(float).round(4)
         return prediction.to_json(orient='records')

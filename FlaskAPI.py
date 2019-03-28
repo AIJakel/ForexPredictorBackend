@@ -13,18 +13,18 @@ import datetime
 app = Flask(__name__)
 CORS(app)
 def init():
-    global model_aud_usd,model_eur_usd,model_gbp_usd,model_nzd_usd,model_usd_cad,model_usd_chf,model_usd_jpy
-    #global graph
-    # load the pre-trained Keras model
-    model_aud_usd = load_model('model_predictFutureCandle_aud_usd.model')
-    model_eur_usd = load_model('model_predictFutureCandle_eur_usd.model')
-    model_gbp_usd = load_model('model_predictFutureCandle_gbp_usd.model')
-    model_nzd_usd = load_model('model_predictFutureCandle_nzd_usd.model')
-    model_usd_cad = load_model('model_predictFutureCandle_usd_cad.model')
-    model_usd_chf = load_model('model_predictFutureCandle_usd_chf.model')
-    model_usd_jpy = load_model('model_predictFutureCandle_usd_jpy.model')
+    # global model_aud_usd,model_eur_usd,model_gbp_usd,model_nzd_usd,model_usd_cad,model_usd_chf,model_usd_jpy
+    # #global graph
+    # # load the pre-trained Keras model
+    # model_aud_usd = load_model('model_predictFutureCandle_aud_usd.model')
+    # model_eur_usd = load_model('model_predictFutureCandle_eur_usd.model')
+    # model_gbp_usd = load_model('model_predictFutureCandle_gbp_usd.model')
+    # model_nzd_usd = load_model('model_predictFutureCandle_nzd_usd.model')
+    # model_usd_cad = load_model('model_predictFutureCandle_usd_cad.model')
+    # model_usd_chf = load_model('model_predictFutureCandle_usd_chf.model')
+    # model_usd_jpy = load_model('model_predictFutureCandle_usd_jpy.model')
 
-    graph = tf.get_default_graph()
+    # graph = tf.get_default_graph()
 
 # end point for getting all the historic data for a specified pair
 @app.route('/historical/<string:curr_Pair>', methods=['GET'])
@@ -39,6 +39,18 @@ def get_Date(curr_Pair):
 @app.route('/prediction/<string:curr_Pair>', methods=['GET'])
 def get_Prediction(curr_Pair):
     inputFeature = operationsAPI.getCurrData(curr_Pair)
+    model_aud_usd = load_model('model_predictFutureCandle_aud_usd.model')
+    model_eur_usd = load_model('model_predictFutureCandle_eur_usd.model')
+    model_gbp_usd = load_model('model_predictFutureCandle_gbp_usd.model')
+    model_nzd_usd = load_model('model_predictFutureCandle_nzd_usd.model')
+    model_usd_cad = load_model('model_predictFutureCandle_usd_cad.model')
+    model_usd_chf = load_model('model_predictFutureCandle_usd_chf.model')
+    model_usd_jpy = load_model('model_predictFutureCandle_usd_jpy.model')
+
+    graph = tf.get_default_graph()
+
+
+
     if curr_Pair == 'aud_usd':
         #with graph.as_default():
         raw_prediction = model_aud_usd.predict(inputFeature)

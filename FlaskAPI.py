@@ -53,43 +53,43 @@ def get_Prediction(curr_Pair):
 
     
     if curr_Pair == 'aud_usd':
-        #with graph.as_default():
-        raw_prediction = model_aud_usd.predict(inputFeature)
+        with graph.as_default():
+          raw_prediction = model_aud_usd.predict(inputFeature)
         prediction = pd.DataFrame(raw_prediction, columns=["p_open","p_close","p_high","p_low"])
         prediction = prediction.astype(float).round(4)
         return prediction.to_json(orient='records')
     
     elif curr_Pair == 'eur_usd':
-        #with graph.as_default():
-        raw_prediction = model_eur_usd.predict(inputFeature)
+        with graph.as_default():
+          raw_prediction = model_eur_usd.predict(inputFeature)
         prediction = pd.DataFrame(raw_prediction, columns=["p_open","p_close","p_high","p_low"])
         prediction = prediction.astype(float).round(4)
         return prediction.to_json(orient='records')
     
     elif curr_Pair == 'gbp_usd':
-        #with graph.as_default():
-        raw_prediction = model_gbp_usd.predict(inputFeature)
+        with graph.as_default():
+          raw_prediction = model_gbp_usd.predict(inputFeature)
         prediction = pd.DataFrame(raw_prediction, columns=["p_open","p_close","p_high","p_low"])
         prediction = prediction.astype(float).round(4)
         return prediction.to_json(orient='records')
     
     elif curr_Pair == 'nzd_usd':
-        #with graph.as_default():
-        raw_prediction = model_nzd_usd.predict(inputFeature)
+        with graph.as_default():
+          raw_prediction = model_nzd_usd.predict(inputFeature)
         prediction = pd.DataFrame(raw_prediction, columns=["p_open","p_close","p_high","p_low"])
         prediction = prediction.astype(float).round(4)
         return prediction.to_json(orient='records')
     
     elif curr_Pair == 'usd_cad':
-        #with graph.as_default():
-        raw_prediction = model_usd_cad.predict(inputFeature)
+        with graph.as_default():
+          raw_prediction = model_usd_cad.predict(inputFeature)
         prediction = pd.DataFrame(raw_prediction, columns=["p_open","p_close","p_high","p_low"])
         prediction = prediction.astype(float).round(4)
         return prediction.to_json(orient='records')
     
     elif curr_Pair == 'usd_chf':
-        #with graph.as_default():
-        raw_prediction = model_usd_chf.predict(inputFeature)
+        with graph.as_default():
+          raw_prediction = model_usd_chf.predict(inputFeature)
         prediction = pd.DataFrame(raw_prediction, columns=["p_open","p_close","p_high","p_low"])
         prediction = prediction.astype(float).round(4)
         return prediction.to_json(orient='records')

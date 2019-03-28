@@ -38,7 +38,6 @@ def get_Date(curr_Pair):
 #end point for getting the prediction for the next hour for a specified pair
 @app.route('/prediction/<string:curr_Pair>', methods=['GET'])
 def get_Prediction(curr_Pair):
-    tf.reset_default_graph()
     inputFeature = operationsAPI.getCurrData(curr_Pair)
     model_aud_usd = load_model('model_predictFutureCandle_aud_usd.model')
     model_eur_usd = load_model('model_predictFutureCandle_eur_usd.model')

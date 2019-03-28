@@ -13,8 +13,7 @@ import datetime
 app = Flask(__name__)
 CORS(app)
 def init():
-    global model_aud_usd,model_eur_usd,model_gbp_usd,model_nzd_usd,model_usd_cad,model_usd_chf,model_usd_jpy,graph, lastCalled, timeNow
-    global p_aud_usd,p_eur_usd,p_gbp_usd,p_nzd_usd,p_usd_cad,p_usd_chf,p_usd_jpy
+    global model_aud_usd,model_eur_usd,model_gbp_usd,model_nzd_usd,model_usd_cad,model_usd_chf,model_usd_jpy,graph
     # load the pre-trained Keras model
     model_aud_usd = load_model('model_predictFutureCandle_aud_usd.model')
     model_eur_usd = load_model('model_predictFutureCandle_eur_usd.model')
@@ -23,9 +22,6 @@ def init():
     model_usd_cad = load_model('model_predictFutureCandle_usd_cad.model')
     model_usd_chf = load_model('model_predictFutureCandle_usd_chf.model')
     model_usd_jpy = load_model('model_predictFutureCandle_usd_jpy.model')
-
-    timeNow = datetime.datetime.now()
-    lastCalled = datetime.datetime.now()
 
     graph = tf.get_default_graph()
 

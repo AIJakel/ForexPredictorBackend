@@ -1,6 +1,8 @@
 # ForexPredictorBackend
 
+This repo contains the backend for the FOREX predictor application for the MSCI 436 term project.
 
+This application is a FLASK API coded in python. The machine learning section was created using Googles TensorFlow.
 
 ## Local Installation Instructions
 ### Database

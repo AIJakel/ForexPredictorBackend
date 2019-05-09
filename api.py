@@ -11,7 +11,7 @@ print("Connecting to API..")
 con = fxcmpy.fxcmpy(access_token=tokens.FXCM_API_KEY, log_level='error', server='demo')
 print("Connection Status: " + con.connection_status)
 data = pandas.DataFrame()
-db = constants.DATABASES['production']
+db = constants.DATABASES['local']
 print("Writing data to tables...")
 for key, value in constants.TRADED_PAIRS.items():
     data = con.get_candles(key, period='H1', number=1000)
